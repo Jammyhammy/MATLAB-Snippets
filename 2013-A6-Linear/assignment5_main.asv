@@ -1,0 +1,46 @@
+% Adil Khokhar
+% CLID: axk9375
+% Assignment 5 : Solving system of linear equations (comparison between 
+% Cramers, Gaussian Elimination & LU factorization)
+
+num_l = 0;
+num_g = 0;
+
+% Call cramers rule using the example 3 x 3 matrix  defined in 
+% the textbook.
+cramersrule;
+
+% Set up values from Example 9.3 from the book.
+disp('Gauss Naive');
+G_A = [ 3     -0.1   -0.2  ;
+        0.1    7     -0.3  ;
+        0.3   -0.2    10   ; ]
+G_b = [ 7.85;
+        -19.3;
+        71.4 ]
+    
+G_Y = GaussNaive(G_A, G_b);
+disp('Solution:')
+disp(G_Y);
+num_g = GaussNaiveNum(G_A, G_b);
+
+disp('LU Factorization')
+L_A = [ 3     -0.1   -0.2  ;
+        0.1    7     -0.3  ;
+        0.3   -0.2    10   ; ]
+L_b = [ 7.85  ;
+        -19.3 ;
+        71.4  ; ]
+y(1) = b(1); for i = 2:3; y = [y; b(i)-A(i,1:i-1)*y(1:i-1)]; end
+x(3) = y(3)/A(3,3);
+
+
+fprintf(' Number of Operations Performed Comparison:\n');
+
+fprintf(' Cramers    Gauss Naive    LU Factor\n');
+fprintf(' %i ',num_c);
+fprintf('         ');
+fprintf(' %i ',num_g);
+fprintf('         ');
+fprintf(' %i ',num_l);
+fprintf('\n');

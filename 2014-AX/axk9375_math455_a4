@@ -1,0 +1,76 @@
+sh1 = 3;
+sh2 = 7;
+sh3 = 63;
+sh4 = 4095;
+
+for i = 1:sh1
+a1(i) = 2;
+end
+
+for i = 1:sh2
+a2(i) = 2;
+end
+
+for i = 1:sh3
+a3(i) = 2;
+end
+
+for i = 1:sh4
+a4(i) = 2;
+end
+
+for i = 1:sh1-1
+b1(i) = -1;
+end
+
+for i = 1:sh2-1
+b2(i) = -1;
+end
+
+for i = 1:sh3-1
+b3(i) = -1;
+end
+
+for i = 1:sh4-1
+b4(i) = -1;
+end
+
+for i = 1:sh1
+r1(i) = (1/16) * (i/4);
+end
+
+for i = 1:sh2
+r2(i) = (1/64) * (i/8);
+end
+
+for i = 1:sh3
+r3(i) = (1/4096) * (i/64);
+end
+
+for i = 1:sh4
+r4(i) = (1/16777216) * (i/4096);
+end
+
+dr = 0.25:0.25:0.75
+fx = @(x) (1/2).*(x).*(1-x);
+fx(dr)
+
+dr2 = (1/8):(1/8):(7/8);
+
+dr3 = (1/64):(1/64):(63/64);
+
+dr4 = (1/4096):(1/4096):(4095/4096);
+
+fx(dr2)
+fx(dr3)
+fx(dr4)
+
+
+A1 = tridiagonal ( b1, a1, b1, r1 );
+A1 = 2 .* A1
+A2 = tridiagonal ( b2, a2, b2, r2 );
+A2 = 2 .* A2
+A3 = tridiagonal ( b3, a3, b3, r3 );
+A3 = 2 .* A3
+A4 = tridiagonal ( b4, a4, b4, r4 );
+A4 = 2 .* A4

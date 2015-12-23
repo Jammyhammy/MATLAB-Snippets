@@ -1,0 +1,20 @@
+a=1;
+b=2;
+f = @(x) x.^2-2;
+i_eps=1e-10;
+[root,success] = bisect_method(a, b, i_eps, f)
+disp('-----------------Code to find k iterations of eps sizes in problem-----------------------');
+i_eps = 10^-2;
+k_find2(a,b,i_eps)
+i_eps = 10^-4;
+k_find2(a,b,i_eps)
+i_eps = 10^-8;
+k_find2(a,b,i_eps)
+i_eps = 10^-16;
+k_find2(a,b,i_eps)
+i_eps = 10^-32;
+k_find2(a,b,i_eps)
+i_eps = 10^-64;
+k_find2(a,b,i_eps)
+i_eps = 10^-128;
+k_find2(a,b,i_eps)

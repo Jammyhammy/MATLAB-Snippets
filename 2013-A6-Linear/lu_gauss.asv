@@ -1,0 +1,26 @@
+% LU Decomposition with Gaussian Method
+% A = coefficient matrix
+% x = output matrix, will output the LU decomposition in A
+% upper triangular matrix U in A.
+% num = num of operations
+
+function [L,U] = lu_gauss(A)
+
+num = 0;
+
+for k = 1:n-1
+    for i = k+1:n
+        % Forward Substitution
+        A(i,k) = A(i,k)/A(k,k);
+        num = num + 1;
+        
+        if A(k,k) == 0, error('Null diagonal element'); end
+        
+            for j = k+1:n
+                A(i,j) = A(i,j) - A(i,k)*A(k,j);
+                num = num + 2;
+            end
+            
+    end
+    
+end
